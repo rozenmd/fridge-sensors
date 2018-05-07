@@ -30,8 +30,7 @@ export function cleanData(arr) {
       return
     }
     if (memo[row.id]) {
-      let { values } = memo[row.id]
-      values.push(row.temperature)
+      memo[row.id].values.push(row.temperature)
       memo[row.id].sum += row.temperature
     } else {
       memo[row.id] = { sum: row.temperature, values: [row.temperature] }
