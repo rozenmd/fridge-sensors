@@ -6,13 +6,13 @@ type Query {
 input SensorInput {
   id: String!
   timestamp: Int!
-  temperature: Float!
+  temperature: Float
 }
 type SensorOutput {
  id: String!
  average: Float!
  median: Float!
- mode: [Float]
+ mode: [Float]!
 }
 
 schema {
