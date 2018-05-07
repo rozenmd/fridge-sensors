@@ -202,3 +202,8 @@ It should look like this:
 `webpack.config.babel.js` is provided for building and deploying - I would normally run this on AWS Lambda, with a terraform script building my environment.
 
 Depending on the load from the incoming sensors, one might want to run this code on a dedicated instance for cost savings (relative to running a Lambda function 24/7)
+
+## Assumptions/Opinionated decisions
+
+* Incoming data can be null for a given sensor (in case a reading failed, etc). In this case, the reading will be ignored, rather than taking as a value of 0
+* If all incoming data for a given sensor is null, average, median and mode will not be calculated - the service will only return data for sensors with incoming data
