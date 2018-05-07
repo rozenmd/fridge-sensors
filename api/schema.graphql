@@ -1,0 +1,20 @@
+type Query {
+# this could have been a Mutation, but since i'm not mutating
+# any values in a store, I've chosen to keep it in a Query
+  input(data: [SensorInput]!): [SensorOutput]
+}
+input SensorInput {
+  id: String!
+  timestamp: Int!
+  temperature: Float!
+}
+type SensorOutput {
+ id: String!
+ average: Float!
+ median: Float!
+ mode: [Float]
+}
+
+schema {
+  query: Query
+}

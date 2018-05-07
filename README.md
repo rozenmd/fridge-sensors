@@ -13,7 +13,7 @@
 
 ## Usage
 
-You get two ways of feeding this microservice data:
+You get two ways of feeding this micro-service data:
 
 1.  `POST` to http://localhost:3001/api the dataset (I provided this to match the requirements as much as possible):
 
@@ -194,7 +194,11 @@ the same data as previously, but wrapped in a `data` object:
 }
 ```
 
-# ------ Note ------
+It should look like this:
+![GraphQL Insomnia screenshot](/static/img/graphql-insomnia.png?raw=true 'GraphQL Insomnia')
 
-`webpack.config.babel.js` is provided for building and deploying - I would normally run this on AWS Lambda, with a terraform script building my environment
-# fridge-sensors
+## Infrastructure notes
+
+`webpack.config.babel.js` is provided for building and deploying - I would normally run this on AWS Lambda, with a terraform script building my environment.
+
+Depending on the load from the incoming sensors, one might want to run this code on a dedicated instance for cost savings (relative to running a Lambda function 24/7)

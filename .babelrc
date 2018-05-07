@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "react",
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "emotion",
+    "lodash",
+    "inline-import",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
+}
