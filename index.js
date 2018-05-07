@@ -1,7 +1,6 @@
 import cors from 'cors'
 import express from 'express'
 import webpack from 'webpack'
-import webpackDevMiddleware from 'webpack-dev-middleware'
 
 import schema from './api/schema'
 import { json } from 'body-parser'
