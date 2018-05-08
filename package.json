@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env BABEL_DISABLE_CACHE=1 node -r babel-register index.js",
-    "build:api": "cross-env BABEL_DISABLE_CACHE=1 webpack --config=api/webpack.config.babel.js --env=production"
+    "build:api":
+      "cross-env BABEL_DISABLE_CACHE=1 webpack --config=api/webpack.config.babel.js --env=production",
+    "build:api-rest":
+      "cross-env BABEL_DISABLE_CACHE=1 webpack --config=api_rest/webpack.config.babel.js --env=production"
   },
   "author": "Max Rozen",
   "license": "MIT",

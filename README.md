@@ -15,7 +15,7 @@
 
 You get two ways of feeding this micro-service data:
 
-1.  `POST` to http://localhost:3001/api the dataset (I provided this to match the requirements as much as possible):
+1.  `POST` to http://localhost:3001/api or https://fridge-rest.rozenmd.com/api the dataset (I provided this to match the requirements as much as possible):
 
 ```
 [
@@ -97,7 +97,7 @@ You get two ways of feeding this micro-service data:
 ]
 ```
 
-2.  `POST` to http://localhost:3001/graphql the following query:
+2.  `POST` to http://localhost:3001/graphql or https://fridge.rozenmd.com/api the following query:
 
 ```
 query CalcInputs($data: [SensorInput]!){
@@ -200,6 +200,8 @@ It should look like this:
 ## Infrastructure notes
 
 `webpack.config.babel.js` is provided for building and deploying - I would normally run this on AWS Lambda, with a terraform script building my environment.
+
+See /infrastructure for terraform config - most of it is boilerplate from previous generic lambda functions - rolled out for speed, rather than security in mind.
 
 Depending on the load from the incoming sensors, one might want to run this code on a dedicated instance for cost savings (relative to running a Lambda function 24/7)
 
