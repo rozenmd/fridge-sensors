@@ -17,7 +17,8 @@ export const handler = (event, context, callback) => {
     })
   } else {
     try {
-      let data = calculateSensorData(event.body)
+      let parsedBody = JSON.parse(event.body)
+      let data = calculateSensorData(parsedBody)
       callback(null, {
         statusCode: 200,
         headers: {
