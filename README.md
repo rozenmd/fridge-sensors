@@ -209,3 +209,9 @@ Depending on the load from the incoming sensors, one might want to run this code
 
 * Incoming data can be null for a given sensor (in case a reading failed, etc). In this case, the reading will be ignored, rather than taking as a value of 0
 * If all incoming data for a given sensor is null, average, median and mode will not be calculated - the service will only return data for sensors with incoming data
+
+## Design Considerations:
+
+* No thought has been given into checking the timestamps - it is assumed that all readings submitted to the service need to be used in the calculation. As such, to use this system in production, it might be worth sending API calls at regular intervals to have meaningful results.
+* Scalability - when this service runs on serverless architecture, it is effectively infinitely scalable (bound by account limits). As no external resources such as databases are invoked, on a non-serverless system the bound will be CPU/RAM
+* The service allows both GraphQL and standard POST calls. GraphQL was used as the consumer may not always wish to receive all fields, for example they may wish to only fetch the average for a given sensor - GraphQL allows for this.
