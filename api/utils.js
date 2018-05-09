@@ -26,7 +26,7 @@ export function cleanData(arr) {
   //iterate once, pull out necessary data
   arr.forEach(row => {
     //quickly check for nulls - don't want to pollute our data
-    if (!row.temperature) {
+    if (!row.temperature && row.temperature !== 0) {
       return
     }
     if (memo[row.id]) {
@@ -42,11 +42,11 @@ export function cleanData(arr) {
 export function getMedian(length, arr) {
   let median = 0
   if (length > 0) {
-    let firstMedian = Math.floor(length / 2)
+    let medianIndex = Math.floor(length / 2)
     if (length % 2 === 0) {
-      median = (arr[firstMedian] + arr[firstMedian - 1]) / 2
+      median = (arr[medianIndex] + arr[medianIndex - 1]) / 2
     } else {
-      median = arr[firstMedian]
+      median = arr[medianIndex]
     }
   }
   median = precisionRound(median, PRECISION)
